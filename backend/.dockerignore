@@ -1,0 +1,18 @@
+# /be/.dockerignore
+
+# Abaikan dependensi lokal, karena akan diinstal di dalam kontainer
+node_modules
+
+# Abaikan log npm
+npm-debug.log
+
+# Abaikan file environment lokal (ini penting untuk keamanan)
+.env
+
+# Abaikan file sistem operasi
+.DS_Store
+Thumbs.db
+
+# Abaikan file Docker itu sendiri
+Dockerfile
+.dockerignore
