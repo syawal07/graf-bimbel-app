@@ -1,4 +1,4 @@
-# File: docker-compose.yml (UNTUK PRODUKSI)
+# File: docker-compose.yml (UNTUK PRODUKSI DENGAN COOLIFY)
 
 version: '3.8'
 
@@ -16,8 +16,8 @@ services:
     build:
       context: ./frontend
     restart: always
-    ports:
-      - "3000:3000"
+    labels:                  
+      - "coolify.expose.port=3000"
     depends_on:
       - backend
 
@@ -25,9 +25,9 @@ services:
     image: postgres:15-alpine
     restart: always
     environment:
-      - POSTGRES_USER=${DB_USER}
-      - POSTGRES_PASSWORD=${DB_PASSWORD}
-      - POSTGRES_DB=${DB_NAME}
+      - POSTGRAF_USER=${DB_USER}
+      - POSTGRAF_PASSWORD=${DB_PASSWORD}
+      - POSTGRAF_DB=${DB_NAME}
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - ./backend/init.sql:/docker-entrypoint-initdb.d/init.sql
