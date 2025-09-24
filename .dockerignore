@@ -1,0 +1,14 @@
+# Abaikan semua folder node_modules
+**/node_modules
+
+# Abaikan semua file .env
+**/.env
+**/.env.local
+
+# Abaikan Git & file sistem operasi
+.git
+.gitignore
+**/.DS_Store
+
+# Abaikan file log
+**/*.log

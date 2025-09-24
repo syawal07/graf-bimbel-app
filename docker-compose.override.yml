@@ -1,0 +1,21 @@
+# File: docker-compose.override.yml (HANYA UNTUK DEVELOPMENT LOKAL)
+
+version: '3.8'
+
+services:
+  backend:
+    ports:
+      - "${BE_PORT}:${BE_PORT}" # Buka port backend untuk testing via Postman
+    volumes:
+      - ./backend:/app  # Sinkronkan kode lokal ke kontainer (hot-reload)
+      - /app/node_modules # Jangan timpa node_modules di kontainer
+
+  frontend:
+    volumes:
+      - ./frontend:/app # Sinkronkan kode lokal ke kontainer (hot-reload)
+      - /app/node_modules # Jangan timpa node_modules di kontainer
+    command: npm run dev # Jalankan server development Next.js
+
+  db:
+    ports:
+      - "5432:5432" # Buka port DB agar bisa diakses dari luar (misal: DBeaver)
