@@ -18,6 +18,7 @@ services:
     restart: always
     labels:           
       - "coolify.expose.port=3000"
+      - "traefik.http.routers.grafbimbel-http.rule=Host(`grafbimbel.com`)"
     depends_on:
       - backend
 
@@ -25,7 +26,6 @@ services:
     image: postgres:15-alpine
     restart: always
     environment:
-      # [PERBAIKAN] Mengganti POSTGRAF menjadi POSTGRES
       - POSTGRES_USER=${DB_USER}
       - POSTGRES_PASSWORD=${DB_PASSWORD}
       - POSTGRES_DB=${DB_NAME}
