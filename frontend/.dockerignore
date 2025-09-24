@@ -1,0 +1,12 @@
+# Dependensi (biarkan Docker yang mengurusnya di dalam container)
+node_modules
+
+# Hasil build & cache Next.js
+.next
+
+# File environment lokal (JANGAN PERNAH dimasukkan ke image)
+.env.local
+
+# File lain-lain
+npm-debug.log*
+README.md
